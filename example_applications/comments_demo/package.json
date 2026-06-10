@@ -1,0 +1,18 @@
+{
+    "name": "comments_demo",
+    "version": "0.0.1",
+    "description": "pict-section-comments demo application (in-memory)",
+    "main": "source/Comments-Demo.js",
+    "scripts": {
+        "build": "npx quack build && npx quack copy",
+        "start": "node source/Comments-Demo.js"
+    },
+    "author": "steven velozo <steven@velozo.com>",
+    "license": "MIT",
+    "copyFilesSettings": {
+        "whenFileExists": "overwrite"
+    },
+    "copyFiles": [
+        { "from": "./html/*", "to": "./dist/" }
+    ]
+}

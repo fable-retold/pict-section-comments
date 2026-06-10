@@ -1,0 +1,35 @@
+.data
+package-lock.json
+
+# Quackage takes care of these for me!
+.babelrc
+.browserslistrc
+.browserslistrc-BACKUP
+.gulpfile-quackage.js
+.gulpfile-quackage-config.json
+*.quackage.bak
+
+# I just dislike this one.
+.DS_Store
+
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Coverage
+coverage
+*.lcov
+.nyc_output
+
+# Dependency directories
+node_modules/
+
+# Build output
+dist
+
+# Generated demo CodeMirror bundle (rebuild with `npm run build:codemirror`)
+**/codemirror-bundle.js
+
+# dotenv
+.env

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>pict-section-comments demo</title>
+	<style>
+		/* Theme tokens so themed pieces (the pict-section-modal confirm dialog) render in this
+		   bare demo, which has no theme provider. A real Pict host supplies these via its theme. */
+		:root {
+			--pict-modal-overlay-bg: rgba(15, 23, 32, 0.45);
+			--theme-color-brand-primary: #2880a6;
+			--theme-color-brand-primary-hover: #20678a;
+			--theme-color-border-default: #d6dde3;
+			--theme-color-border-light: #e7ecf0;
+			--theme-color-text-primary: #1f2430;
+			--theme-color-text-secondary: #5b6470;
+			--theme-color-text-muted: #97a1ab;
+			--theme-color-text-on-brand: #ffffff;
+			--theme-color-background-primary: #ffffff;
+			--theme-color-background-panel: #ffffff;
+			--theme-color-background-secondary: #f7f9fb;
+			--theme-color-background-tertiary: #eef2f6;
+			--theme-color-background-hover: #eef2f6;
+			--theme-color-status-error: #c0392b;
+			--theme-color-status-warning: #d98b58;
+			--theme-color-status-success: #2e7d4f;
+			--theme-color-status-info: #2880a6;
+		}
+		html, body { margin: 0; background: #eef1f4; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; color: #1f2430; }
+		.wrap { max-width: 760px; margin: 28px auto; padding: 0 16px; }
+		h1 { font-size: 19px; margin: 0 0 2px; }
+		.sub { color: #5b6470; font-size: 13px; margin-bottom: 18px; }
+		.card { background: #fff; border: 1px solid #e2e8ee; border-radius: 12px; padding: 18px 20px; box-shadow: 0 1px 3px rgba(20,40,60,0.06); }
+		.foot { color: #97a1ab; font-size: 12px; margin-top: 14px; text-align: center; }
+		code { background: #eef1f4; padding: 1px 5px; border-radius: 4px; font-size: 12px; }
+		.modes { font-size: 13px; color: #5b6470; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+		.mode-btn { font: inherit; font-size: 13px; border: 1px solid #d6dde3; background: #fff; border-radius: 6px; padding: 5px 10px; cursor: pointer; }
+		.mode-btn.mode-on { background: #2880a6; border-color: #2880a6; color: #fff; }
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<h1>pict-section-comments</h1>
+		<div class="sub">An in-memory demo. Everything lives in AppData, nothing is sent anywhere. Try the composer, replies, edit, resolve, the sort toggle, and dragging an image into a comment box.</div>
+		<div class="modes">
+			Composer:
+			<button id="mode-markdown" class="mode-btn mode-on" onclick="window.__setCommentsMode &amp;&amp; window.__setCommentsMode('markdown')">Markdown (inline)</button>
+			<button id="mode-rich" class="mode-btn" onclick="window.__setCommentsMode &amp;&amp; window.__setCommentsMode('rich')">Rich (full editor)</button>
+		</div>
+		<div class="card">
+			<div id="Comments-Container"></div>
+		</div>
+		<div class="foot">Mounted on context <code>WorkItem / 4012</code> with the default InMemoryCommentProvider. Rich mode opens the full pict-section-markdowneditor in a modal.</div>
+	</div>
+	<script src="./codemirror-bundle.js"></script>
+	<script src="./comments_demo.min.js"></script>
+	<script>
+		Pict.safeOnDocumentReady(function ()
+		{
+			Pict.safeLoadPictApplication(window.CommentsDemo, 1);
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+{
+    "name": "pict-section-comments",
+    "version": "1.0.0",
+    "description": "Attach-to-anything comments section for Pict: threaded or flat discussions on any context (a record, a media item, a byte range in a file), with a pluggable data provider that defaults to in-memory AppData and a content spectrum from plain text to the full markdown editor.",
+    "main": "source/Pict-Section-Comments.js",
+    "files": [
+        "source"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/fable-retold/pict-section-comments.git"
+    },
+    "scripts": {
+        "test": "npx mocha -u tdd -R spec --exit test/*_tests.js",
+        "start": "node source/Pict-Section-Comments.js",
+        "build": "npx quack build",
+        "build:codemirror": "node build/build-codemirror-bundle.js"
+    },
+    "author": "steven velozo <steven@velozo.com>",
+    "license": "MIT",
+    "dependencies": {
+        "pict-section-content": "^1.0.15",
+        "pict-section-markdowneditor": "^1.0.17",
+        "pict-section-modal": "^0.0.9",
+        "pict-view": "^1.0.68"
+    },
+    "devDependencies": {
+        "@codemirror/lang-markdown": "^6.5.0",
+        "@codemirror/state": "^6.6.0",
+        "@codemirror/view": "^6.43.0",
+        "chai": "^4.5.0",
+        "codemirror": "^6.0.2",
+        "esbuild": "^0.28.0",
+        "mocha": "^11.0.1",
+        "pict": "^1.0.372",
+        "quackage": "^1.3.0"
+    }
+}
