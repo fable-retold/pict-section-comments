@@ -1,6 +1,6 @@
 {
     "name": "pict-section-comments",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Attach-to-anything comments section for Pict: threaded or flat discussions on any context (a record, a media item, a byte range in a file), with a pluggable data provider that defaults to in-memory AppData and a content spectrum from plain text to the full markdown editor.",
     "main": "source/Pict-Section-Comments.js",
     "files": [
@@ -21,7 +21,7 @@
     "dependencies": {
         "pict-section-content": "^1.0.15",
         "pict-section-markdowneditor": "^1.0.17",
-        "pict-section-modal": "^0.0.9",
+        "pict-section-modal": "^1.1.4",
         "pict-view": "^1.0.68"
     },
     "devDependencies": {

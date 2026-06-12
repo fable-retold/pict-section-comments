@@ -341,9 +341,20 @@ class PictViewComments extends libPictView
 			this.pict.addProvider('Pict-Content', libContent.PictContentProvider.default_configuration, libContent.PictContentProvider);
 		}
 		this._contentProvider = this.pict.providers['Pict-Content'];
+		// Registering the modal is not enough: it scopes its CSS variables under a
+		// .pict-modal-root class it puts on <body> during onBeforeInitialize, so an
+		// uninitialized modal renders unstyled dialogs and toasts. Initialize it
+		// explicitly when the root class is absent (idempotent in hosts that already did).
 		if (!this.pict.views['Pict-Section-Modal'])
 		{
 			this.pict.addView('Pict-Section-Modal', libModal.default_configuration, libModal);
+		}
+		let tmpModalView = this.pict.views['Pict-Section-Modal'];
+		if (tmpModalView && typeof document !== 'undefined' && document.body
+			&& !document.body.classList.contains('pict-modal-root')
+			&& typeof tmpModalView.initialize === 'function')
+		{
+			tmpModalView.initialize();
 		}
 	}
 
